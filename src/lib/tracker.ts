@@ -220,8 +220,9 @@ export default function Plausible(
     trackLocalhost: false,
     url: location.href,
     domain: location.hostname,
-    referrer: document.referrer || null,
-    deviceWidth: window.innerWidth,
+    referrer:
+      typeof document !== 'undefined' ? document.referrer || null : null,
+    deviceWidth: typeof window !== 'undefined' ? window.innerWidth : 0,
     apiHost: 'https://plausible.io',
     ...defaults,
   });
